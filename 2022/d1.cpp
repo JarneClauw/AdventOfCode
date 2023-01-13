@@ -18,6 +18,9 @@ int part1(vector<string> &data) {
             calories += stoi(line);
         }
     }
+    if (calories > maxCalories) {
+        maxCalories = calories;
+    }
     return maxCalories;
 }
 
