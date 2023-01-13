@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -21,7 +22,28 @@ int part1(vector<string> &data) {
 }
 
 int part2(vector<string> &data) {
-    return 0;
+    priority_queue<int, vector<int>, greater<int>> maxCalories;
+    int calories = 0;
+    int size = 3;
+    for (string line : data) {
+        if (line == "") {
+            maxCalories.push(calories);
+            if (maxCalories.size() == size+1) {
+                maxCalories.pop();
+            }
+            calories = 0;
+        } else {
+            calories += stoi(line);
+        }
+    }
+    maxCalories.push(calories);
+    maxCalories.pop();
+    calories = 0;
+    for (int i=0; i<size; i++) {
+        calories += maxCalories.top();
+        maxCalories.pop();
+    }
+    return calories;
 }
 
 int main() {
