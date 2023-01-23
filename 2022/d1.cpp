@@ -51,7 +51,7 @@ int part2(vector<string> &data) {
 
 int main() {
     // Read the file
-    ifstream file("d1.txt");
+    ifstream file("2022/d1.txt");
     string line;
     vector<string> data;
     while(getline(file, line)) {
