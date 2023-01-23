@@ -19,7 +19,14 @@ int part1(RPSGame &data) {
 }
 
 int part2(RPSGame &data) {
-    return 0;
+    int totalScore = 0;
+    E_RPS opponent, outcome;
+    for (auto t : data) {
+        tie(opponent, outcome) = t;
+        int outcomeInt = (toInt(outcome)+1)%3;
+        totalScore += play(play2(opponent,outcomeInt),opponent);
+    }
+    return totalScore;
 }
 
 int main() {

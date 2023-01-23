@@ -15,7 +15,12 @@ enum E_RPS {Rock, Paper, Scissors};
  * - Win: 6
 */
 int play(E_RPS you, E_RPS opponent);
+/**
+ * Determine what to play given the opponents hand and outcome.
+*/
+E_RPS play2(E_RPS opponent, int outcome);
 E_RPS toEnum(char move);
 int toInt(E_RPS move);
+E_RPS fromInt(int move);
 
 #endif

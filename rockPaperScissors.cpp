@@ -22,6 +22,14 @@ int play(E_RPS you, E_RPS opponent) {
     return score;
 }
 
+E_RPS play2(E_RPS opponent, int outcome) {
+    int status = (toInt(opponent) + outcome)%3;
+    if (status == 0) {
+        status = 3;
+    }
+    return fromInt(status);
+}
+
 E_RPS toEnum(char move) {
     E_RPS e;
     switch(move) {
@@ -55,4 +63,20 @@ int toInt(E_RPS move) {
             break;
     }
     return i;
+}
+
+E_RPS fromInt(int move) {
+    E_RPS e;
+    switch(move) {
+        case 1:
+            e = Rock;
+            break;
+        case 2:
+            e = Paper;
+            break;
+        case 3:
+            e = Scissors;
+            break;
+    }
+    return e;
 }
